@@ -1,22 +1,16 @@
-#1
-class PrimeGenerator:
-    def __init__(self):
-        self.index = 2
-    def is_prime(self, num):
-        if num < 2:
-            return False
-        for i in range(2, (num // 2) + 1):
-            if num % i == 0:
-                return False
-        return True
-    def generate(self):
-        new_index = self.index
-        while True:
-            if self.is_prime(new_index):
-                self.index = new_index + 1
-                return new_index
-            new_index += 1
-
-generator = PrimeGenerator()
-for i in range(10):
-    print(generator.generate())
+#2
+def average_closure():
+    numbers = []
+    def add_number(number):
+        numbers.append(number)
+    def get_average():
+        print(numbers)
+        return sum(numbers) / len(numbers)
+    return add_number, get_average
+add_number, get_average = average_closure()
+add_number(1)
+add_number(3)
+add_number(5)
+add_number(7)
+add_number(9)
+print(f"Середнє число зі списку: {get_average()}")
