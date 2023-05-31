@@ -1,16 +1,14 @@
-#2
-def average_closure():
-    numbers = []
-    def add_number(number):
-        numbers.append(number)
-    def get_average():
-        print(numbers)
-        return sum(numbers) / len(numbers)
-    return add_number, get_average
-add_number, get_average = average_closure()
-add_number(1)
-add_number(3)
-add_number(5)
-add_number(7)
-add_number(9)
-print(f"Середнє число зі списку: {get_average()}")
+#3
+import random
+class PasswordGenerator:
+    def __init__(self , length , characters):
+        self.length = length
+        self.characters = characters
+    def generate_password(self):
+        password = ''
+        for i in range(self.length):
+            password += random.choice(self.characters)
+        return password
+rezult = PasswordGenerator(10 , 'DFH42!#%xfgn97876')
+for i in range(3):
+    print(f"Пароль: {rezult.generate_password()}")
